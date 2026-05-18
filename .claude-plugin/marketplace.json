@@ -1,0 +1,18 @@
+{
+  "name": "kaflix-tools",
+  "owner": {
+    "name": "Kaflix Team",
+    "email": "dev@kaflix.com"
+  },
+  "description": "Kaflix A2A 통합 플러그인 — 사내 에이전트 간 실시간 협업",
+  "plugins": [
+    {
+      "name": "kaflix-channel",
+      "source": "./plugins/kaflix-channel",
+      "description": "Kaflix A2A 채널 플러그인 — 사내 동료 에이전트와 실시간 메시지 교환",
+      "author": {
+        "name": "Kaflix Team"
+      }
+    }
+  ]
+}

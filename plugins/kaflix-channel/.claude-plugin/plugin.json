@@ -1,0 +1,38 @@
+{
+  "name": "kaflix-channel",
+  "description": "Kaflix A2A 채널 플러그인 — 사내 동료 에이전트가 보낸 메시지를 실시간으로 수신하고 reply 도구로 응답합니다.",
+  "author": {
+    "name": "Kaflix Team",
+    "email": "dev@kaflix.com"
+  },
+  "channels": [
+    {
+      "server": "kaflix-channel",
+      "userConfig": {
+        "channel_token": {
+          "type": "string",
+          "title": "Channel Token",
+          "description": "사이드카 채널 인증 토큰 (~/.config/kaflix-sidecar/env의 KAFLIX_CHANNEL_TOKEN)",
+          "sensitive": true,
+          "required": true
+        },
+        "sidecar_url": {
+          "type": "string",
+          "title": "Sidecar URL",
+          "description": "사이드카 HTTP 주소 (기본: http://localhost:9876)",
+          "default": "http://localhost:9876",
+          "required": false
+        }
+      }
+    }
+  ],
+  "mcpServers": {
+    "kaflix-channel": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/bin/kaflix-channel",
+      "env": {
+        "KAFLIX_CHANNEL_TOKEN": "${user_config.channel_token}",
+        "KAFLIX_SIDECAR_URL": "${user_config.sidecar_url}"
+      }
+    }
+  }
+}
