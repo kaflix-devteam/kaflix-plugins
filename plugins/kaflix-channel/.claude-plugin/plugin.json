@@ -22,6 +22,12 @@
           "description": "사이드카 HTTP 주소 (기본: http://localhost:9876)",
           "default": "http://localhost:9876",
           "required": false
+        },
+        "instance_label": {
+          "type": "string",
+          "title": "Instance Label",
+          "description": "멀티-테넌트 모드: 이 Claude 창의 라벨 (예: coder, reviewer). 같은 PC에서 여러 Claude를 동시에 운영할 때 형제 인스턴스와 구분되는 별도 A2A 에이전트로 등록됩니다. 비워두면 default 인스턴스(레거시).",
+          "required": false
         }
       }
     }
@@ -31,7 +37,8 @@
       "command": "${CLAUDE_PLUGIN_ROOT}/bin/kaflix-channel",
       "env": {
         "KAFLIX_CHANNEL_TOKEN": "${user_config.channel_token}",
-        "KAFLIX_SIDECAR_URL": "${user_config.sidecar_url}"
+        "KAFLIX_SIDECAR_URL": "${user_config.sidecar_url}",
+        "KAFLIX_INSTANCE_LABEL": "${user_config.instance_label}"
       }
     }
   }
